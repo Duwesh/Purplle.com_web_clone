@@ -32,7 +32,7 @@
 
    
     #sub_total{
-        /* height:600px; */
+        height:600px;
         width:380px;
         border: 1px solid red;
     }
