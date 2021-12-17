@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>signup</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
     <script
   src="https://kit.fontawesome.com/683b4b40e3.js"
   crossorigin="anonymous"
@@ -50,7 +50,7 @@
         <!-- third field  -->
         <div class="wrapper">
           <div class="input-form">
-            <input type="number" class="form-control"  name="number" id="password" placeholder="Enter Password" required />
+            <input type="password" class="form-control"  name="number" id="password" placeholder="Enter Password" required />
             <label class="label-form" for="password">Enter Your Password<span class="icon-star"><i class="fas fa-star"></i></span></label>
             <!-- <div class="wrong"></div> -->
           </div>
@@ -108,6 +108,6 @@ function addItems(event) {
   localStorage.setItem("userData", JSON.stringify(userArr));
   // document.querySelector("#id").value = "";
   alert("Registerd Successfully!");
-  // document.location.href = "signin.html";
+  document.location.href = "signin.html";
 }
 </script>
