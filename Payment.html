@@ -207,29 +207,8 @@
 
   document.querySelector(".cartproductbox").addEventListener("click", addOn);
 
-
-  var arr = [
-    {
-      tital: "pond's super light gel",
-      sorc: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/255610/pond-s-super-light-gel-moisturiser-147-g_8_display_1631080407_07f401a5.jpg",
-      mrp: 400,
-    },
-    {
-      tital: "lotus professional phyto-rx whaitening",
-      sorc: "https://media6.ppl-media.com/tr:h-250,w-250,c-at_max/static/img/product/229740/lotus-herbals-phyto-rx-whitening-and-brightening-creme-spf-25-pa-50-g_1_display_1463641494_7737bebc.jpg",
-      mrp: 416,
-    },
-    {
-      tital: "derm doc skin glow day cream",
-      sorc: "https://media6.ppl-media.com/tr:h-250,w-250,c-at_max,oi-New04_ZlRSreYl-t.png,ofo-top_right/static/img/product/220760/dermdoc-skin-glow-day-cream-with-vitamin-e-50gm_11_display_1626851461_b1b4cd4d.jpg",
-      mrp: 234,
-    },
-    {
-      tital: "good vibes coconut brightening face",
-      sorc: "https://media6.ppl-media.com/tr:h-250,w-250,c-at_max/static/img/product/213932/good-vibes-brightening-face-cream-coconut-100-g-1_8_display_1620451235_8a55ad27.jpg",
-      mrp: 319,
-    }
-  ]
+  var arr=JSON.parse(localStorage.getItem("cartItems")) || [];
+ 
   calculation();
       //this data without promocode
   function calculation() {
@@ -306,27 +285,29 @@
     }
   }
 
-
+ function addOn(){
+   Display(arr)
+ }
 
 
   // createElement part
 
-  function addOn() {
+  function Display(arr) {
             
     arr.map(function (elem, index) {
       document.querySelector(".cartproductbox").textContent = "";
       var cart = document.createElement("div");
       var imgbox = document.createElement("div");
       var img = document.createElement("img");
-      img.setAttribute("src", elem.sorc)
+      img.setAttribute("src", elem.image)
       img.style.height = "100%";
       img.style.width = "100%";
       var desbox = document.createElement("div");
       var prodes = document.createElement("div");
       var protext = document.createElement("div");
-      protext.textContent = elem.tital;
+      protext.textContent = elem.name;
       var proMRP = document.createElement("div");
-      proMRP.textContent = elem.mrp;
+      proMRP.textContent = elem.price;
       var buttdes = document.createElement("div");
       var qty = document.createElement("div");
       var qutiti = document.createElement("select");
@@ -352,7 +333,7 @@
       buttdes.append(qty, remove);
       qty.append(qutiti)
       qutiti.append(o1, o2, o3, o4);
-      // document.querySelector(".cartproductboxAfter").textContent = "";
+     
 
     })
     // hide Item in order
@@ -387,7 +368,8 @@
   function subtrect(elem, index) {
     console.log(elem, index);
     arr.splice(index, 1);
+    localStorage.setItem("cartsItems",JSON.stringify(arr));
     document.querySelector(".outercart").textContent = "";
-    addOn();
+    Display(arr);
   }
 </script>
