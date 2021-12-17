@@ -214,12 +214,12 @@
   function calculation() {
     // MRP calculation part
     var MRP = arr.map(function (el) {
-      return el.mrp;
+      return el.price;
     })
 
 
     var total = MRP.reduce(function (cur, el) {
-      return cur + el;
+      return Number(cur) + Number(el);
     })
 
     document.querySelector(".TotalMRP").textContent = total;
@@ -246,12 +246,12 @@
     if (coupan === "APPFIRST") {
       alert("wow!");
       var MRP = arr.map(function (el) {
-        return el.mrp;
+        return el.price;
       })
 
 
       var total = MRP.reduce(function (cur, el) {
-        return cur + el;
+        return Number(cur) + Number(el);
       })
 
       document.querySelector(".TotalMRP").textContent = total;
