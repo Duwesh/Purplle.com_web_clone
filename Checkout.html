@@ -207,7 +207,12 @@ document.querySelector("#save2").textContent=data[0].saving;
 document.querySelector(".submit").value= ("PAY"+" "+data[0].order_total);
 document.querySelector(".subtotal").textContent=data[0].subtotal;
 document.querySelector(".TotalMRP").textContent=data[0].total;
-// createElement part
 
-
+// email change function 
+var Email=JSON.parse(localStorage.getItem("New"));
+if(Email.length>0){
+  document.querySelector(".email").textContent="";
+  document.querySelector(".email").textContent=Email[0].NewEmail;
+  
+}
 </script>
