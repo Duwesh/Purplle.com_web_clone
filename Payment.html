@@ -372,4 +372,30 @@
     document.querySelector(".outercart").textContent = "";
     Display(arr);
   }
+
+  // Email Change function
+  document.querySelector(".change").addEventListener("click",changeOn);
+
+function changeOn(){
+  console.log("hello");
+  document.querySelector(".email").textContent="";
+  var input=document.createElement("input");
+  input.className="newEmail";
+  var but=document.createElement("button");
+  but.textContent="Change";
+  but.id="but"
+  document.querySelector(".email").append(input,but);
+  document.querySelector("#but").addEventListener("click",butOn);
+}
+     var emailarr=[]
+function butOn(){
+    var New_Email=document.querySelector(".newEmail").value;
+    document.querySelector(".email").textContent="";
+    document.querySelector(".email").textContent=New_Email;
+    var ChangeEmail={
+      NewEmail:New_Email,
+    }
+     emailarr.push(ChangeEmail);
+     localStorage.setItem("New",JSON.stringify(emailarr));
+}
 </script>
