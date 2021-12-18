@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #main {
+            width: 90%;
+            /* border: 1px solid pink; */
+            margin: auto;
+        }
+        
+        #container,
+        #container1 {
+            width: 85%;
+            /* border: 1px solid teal; */
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 50px;
+        }
+        
+        #container>div,
+        #container1>div {
+            margin-right: 30px;
+            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+            width: 18%;
+            height: 310px;
+            /* border: 1px solid red; */
+            margin-left: 50px;
+            margin-bottom: 40px;
+        }
+        
+        .subdiv {
+            display: flex;
+            margin-top: -35px;
+        }
+        
+        h5 {
+            color: gray;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+        
+        h6 {
+            margin-left: 5px;
+            color: red;
+        }
+        
+        #headimage {
+            width: 85%;
+            margin: auto;
+            margin-top: 122px;
+            /* height: 350px; */
+            /* border: 1px solid black; */
+        }
+        
+        #head {
+            width: 100%;
+            height: 300px;
+        }
+        
+        .prodimage {
+            height: 220px;
+            width: 100%;
+            /* position: relative; */
+            /* border: 1px solid blue; */
+            margin-bottom: -10px;
+        }
+        
+        .carttext {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background: black;
+            color: white;
+            margin-bottom: 5px;
+            font-family: sans-serif;
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: visibility 0s, opacity 0.5s linear;
+            transition: visibility 0s, opacity 0.5s linear;
+        }
+        
+        .prodimage:hover {
+            cursor: pointer;
+            /* height: 200px;
+            width: 200px; */
+        }
+        
+        .carttext:hover {
+            width: 150px;
+            padding: 8px 15px;
+            visibility: visible;
+            opacity: 0.7;
+        }
+        
+        #main1 {
+            margin-top: 20px;
+        }
+        /* #container1{
+          height: 300px;
+          } */
+        
+        .rating {
+            margin-top: -25px;
+            color: green;
+        }
+        
+        p {
+            color: gray;
+        }
+        
+        #filter_box {
+            /* border: 2px solid red; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            margin-top: 0px;
+        }
+        
+        select {
+            height: 30px;
+            margin: 20px;
+            font-size: 22px;
+            border-radius: 5px;
+        }
+        
+        label {
+            font-size: 25px;
+        }
+        
+        select:hover {
+            background-color: linen;
+        }
+        
+        #navbar {
+            /* border: 1.2px solid red; */
+            /* position: relative; */
+            height: 120px;
+            display: flex;
+            flex-flow: column;
+            position: fixed;
+            left: 0px;
+            right: 0px;
+            top: 0px;
+            bottom: 0px;
+            background-color: white;
+        }
+        
+        #navbar>div:nth-child(1) {
+            display: flex;
+            justify-content: right;
+        }
+        
+        #navbar>div:nth-child(2) {
+            width: 100%;
+            height: 60%;
+            border-top: 0.6px solid rgb(138, 134, 134);
+            border-bottom: 0.6px solid rgb(163, 154, 154);
+            display: flex;
+            justify-content: space-around;
+        }
+        
+        #navbar>div:nth-child(1) {
+            height: 40%;
+            width: 100%;
+        }
+        
+        th {
+            padding: 10px;
+            margin-left: 300px;
+        }
+        
+        h3:hover {
+            text-decoration: underline;
+            color: rgb(214, 13, 137);
+            cursor: pointer;
+        }
+        
+        #prime {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ---------------------------navebar----------------------  -->
+    <div id="navbar">
+        <div>
+            <h6><img src="https://www.linkpicture.com/q/nav2.png" alt=""></h6>
+        </div>
+        <div>
+            <img src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg" alt="">
+            <h3>SHOP CATEGORY </h3>
+            <h3>BRANDS</h3>
+            <h3>OFFERS</h3>
+            <h3>SPLURGE</h3>
+            <h3>MAGAZINE</h3>
+            <img src="https://www.linkpicture.com/q/navbar_1.png" alt="">
+
+        </div>
+    </div>
+    <!-- --------------------------------------navbar-----------------------------  -->
+    <div id="headimage">
+        <img class="slider_image" src="https://media6.ppl-media.com/mediafiles/ecomm/misc/1637066830_nyb-web-category-banner-1280x400-1.gif?tr=f-gif" alt="">
+
+    </div>
+
+    <div id="prime">
+        <h1>PRIMER</h1>
+    </div>
+    <div id="filter_box">
+        <label>Sort by price</label>
+        <select id="sort" onchange="sortproduct()">
+      <option value="">Select</option>
+      <option value="low">Low to High</option>
+      <option value="high">High To Low</option>
+    </select>
+        <label>Filter</label>
+        <select id="filter1" onchange="filter1()">
+      <option value="">Select Type</option>
+      <option value="Dry Skin">Dry Skin</option>
+      <option value="Uneven Skin Tone">Uneven Skin Tone</option>
+      <option value="All Skin Types">All Skin Types</option>
+    </select>
+
+        <label> More Filter</label>
+        <select id="filter2" onchange="filter2()">
+      <option value="">Skin Concern</option>
+      <option value="Dullness">Dullness</option>
+      <option value="Rough Skin">Rough Skin</option>
+      <option value="Dehydrated Skin">Dehydrated Skin</option>
+      <option value="Visible Pores">Visible Pores</option>
+      <option value="Skin Texture">Skin Texture</option>
+    </select>
+    </div>
+    <div id="main">
+        <h2>BEST SELLERS</h2>
+        <div id="container"></div>
+
+        <h2>ALL PRODUCTS</h2>
+        <div id="container1"></div>
+
+    </div>
+</body>
+
+</html>
+<script>
+    var container = document.querySelector("#container");
+    var primerobj = [{
+        name: "NY Bae Blurin Primer| Face Primer",
+        image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/240161/ny-bae-primer-white-15g-15_10_display_1631800058_e824cd72.jpg",
+        price: "₹189",
+        strikeoff: "215",
+        discount: "12% off"
+    }, {
+        name: "Lakme Absolute Blur Perfect Makeup Primer,10g",
+        image: "https://media6.ppl-media.com/tr:h-250,w-250,c-at_max/static/img/product/214310/lakme-absolute-blur-perfect-makeup-primer-10-g-18_7_display_1631104552_882ba13c.jpg",
+        price: "₹263",
+        strikeoff: "215",
+        discount: "12% off"
+    }, {
+        name: "NY Bae Makeup Primer|All Skin Types",
+        image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/238793/ny-bae-face-primer-48_10_display_1631799901_3c29c8d8.jpg",
+        price: "₹216",
+        strikeoff: "245",
+        discount: "12% off"
+    }, {
+        name: "Insight 3 in 1 Long Lasting Primer(30ml)",
+        image: "https://media6.ppl-media.com/tr:h-250,w-250,c-at_max/static/img/product/239648/insight-3-in-1-long-lasting-primer-30ml-67_2_display_1630212475_7b05bb98.jpg",
+        price: "₹250"
+    }];
+    displayItem(primerobj);
+
+    function displayItem(primerobj) {
+        primerobj.map(function(elem) {
+            var maindiv = document.createElement("div");
+            var imagediv = document.createElement("div");
+            imagediv.setAttribute("class", "imagediv");
+            var image = document.createElement("img");
+            image.setAttribute("src", elem.image);
+            image.setAttribute("class", "prodimage")
+            var addcart = document.createElement("div")
+            addcart.setAttribute("class", "carttext");
+
+            addcart.textContent = "ADD TO CART"
+            imagediv.append(image, addcart);
+            var name = document.createElement("p");
+            name.textContent = elem.name;
+            var subdiv = document.createElement("div");
+            var price = document.createElement("h4");
+            price.textContent = elem.price;
+            var strikeoff = document.createElement("h5");
+            strikeoff.textContent = elem.strikeoff;
+            var discount = document.createElement("h6");
+            discount.textContent = elem.discount;
+            subdiv.setAttribute("class", "subdiv")
+            subdiv.append(price, strikeoff, discount);
+            maindiv.append(imagediv, name, subdiv);
+            container.append(maindiv);
+
+        });
+
+
+    }
+    var allproducts = [{
+            name: "NY Bae Blurin' Primer|Face Primer|Blurs out Pores",
+            price: "₹189",
+            strikeoff: "215",
+            discount: "12% off",
+            type: "All Skin Types",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/240161/ny-bae-primer-white-15g-15_10_display_1631800058_e824cd72.jpg",
+            rating: "3.9★ "
+        }, {
+            name: "Insight 3 in1 Long Lasting Primer(30ml)",
+            price: "₹250",
+            strikeoff: "",
+            discount: "",
+            type: "Rough Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/239648/insight-3-in-1-long-lasting-primer-30ml-67_2_display_1630212475_7b05bb98.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Lakme Absolute blur Perfect Makeup Primer,10 g",
+            price: "₹263",
+            strikeoff: "299",
+            discount: "12% off",
+            type: "Dry Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/214310/lakme-absolute-blur-perfect-makeup-primer-10-g-18_7_display_1631104552_882ba13c.jpg",
+            rating: "4.1★",
+        }, {
+            name: "Swiss Beauty Real makeup Base Highlights Primer",
+            price: "₹349",
+            strikeoff: "",
+            discount: "",
+            type: "",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/267458/swiss-beauty-real-makeup-base-highlighting-primer-natural-tint-30-ml_1_display_1590792783_75d33aec.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Blue Heavens Flawless MakeupBase Primer(30g)",
+            price: "₹276",
+            strikeoff: "325",
+            discount: "15% off",
+            type: "Rough Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/232332/blue-heaven-studio-perfection-primer-30-g_2_display_1612161844_9ec6a65b.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Colorbar Cosmetics Flawless Finisih Primer-30ml FFP001",
+            price: "₹399",
+            strikeoff: "499",
+            discount: "20% off",
+            type: "Rough Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/206610/colorbar-cosmetics-flawless-finish-primer-30ml-ffp001_2_display_1599304855_7a10b52e.jpg",
+            rating: "4.3★"
+        }, {
+            name: "NY Bae Makeup Primer|All Skin Types",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-Best_Seller_235x235small_e0fLESWoel.png,ofo-top_right/static/img/product/238793/ny-bae-face-primer-48_10_display_1631799901_3c29c8d8.jpg",
+            price: "₹216",
+            strikeoff: "245",
+            discount: "12% off",
+            rating: "3.9★",
+            type: "All Skin Types"
+        }, {
+            name: "Purplle True Jewel 24K gold Primer|Matte|Oil Control",
+            price: "₹396",
+            strikeoff: "450",
+            discount: "12% off",
+            type: "Dry Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/170676/purplle-true-jewel-24k-gold-primer-20-ml_10_display_1628078492_d1932184.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Embryolisse Concentrated Lait Cream primer",
+            price: "₹1125",
+            strikeoff: "1250",
+            discount: "10% off",
+            type: "Dullness",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/187169/embryolisse-concentrated-lait-cream-primer-moisturizer-30-ml_1_display_1573111690_6083b30a.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Wet n Wild Photo Focus Dewy Face Primer",
+            price: "₹489",
+            strikeoff: "699",
+            discount: "30% off",
+            type: "Dullness",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/221572/wet-n-wild-photo-focus-dewy-face-primer-till-prime-do-us-part-25-ml-20_2_display_1635845618_29cdd833.jpg",
+            rating: "4.1★"
+        }, {
+            name: "Colorbar Lip Prime & Care Lip Prime & Care (2.5g)",
+            price: "₹560",
+            strikeoff: "700",
+            discount: "20% off",
+            type: "Dullness",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/121538/colorbar-lip-prime-and-care-lip-prime-and-care-2-5-g_3_display_1629272095_91d79794.jpg",
+            rating: "3.2★"
+        }, {
+            name: "NY Bae Pro Primer| Orange Colour Correcting",
+            price: "₹237",
+            strikeoff: "249",
+            discount: "5% off",
+            type: "Uneven Skin Tone",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/250565/ny-bae-pro-primer-orange-color-correcting-face-primer-15-ml_1_display_1634907622_6adaad73.jpg",
+            rating: "4.2★"
+        }, {
+            name: "NY Bae Pro Primer| Yellow Colour Correcting ",
+            price: "₹237",
+            strikeoff: "249",
+            discount: "5% off",
+            type: "Uneven Skin Tone",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/250564/ny-bae-pro-primer-yellow-color-correcting-face-primer-15-ml_2_display_1634907515_af5f4dff.jpg",
+            rating: "4.4★"
+        }, {
+            name: "Colorbar Perfect Match Primer (30ml)",
+            price: "₹744",
+            strikeoff: "875",
+            discount: "15% off",
+            type: "Uneven Skin Tone",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/266539/colorbar-perfect-match-primer-30-ml-95_3_display_1602325491_51ef4699.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Maybelline New York Fit Me Primer Dewy",
+            price: "₹449",
+            strikeoff: "499",
+            discount: "10% off",
+            type: "Uneven Skin Tone",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/227297/maybelline-new-york-fit-me-primer-dewy-smooth_2_display_1632145031_9f32f249.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Magic Colour Face Primer- 24K Gold| (30ml)",
+            price: "₹674",
+            strikeoff: "749",
+            discount: "10% off",
+            type: "Dullness",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/253636/magic-colour-face-primer-24k-gold-30-ml-1_1_display_1630225728_4c735fd5.jpg",
+            rating: "4.5★"
+        }, {
+            name: "Stay Quirky First Base Primer Oil(10ml)",
+            price: "₹198",
+            strikeoff: "225",
+            discount: "12% off",
+            type: "Dehydrated Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/225060/stay-quirky-first-base-primer-oil-10-ml_1_display_1581613137_4b59190c.jpg",
+            rating: "3.9★"
+        }, {
+            name: "Revolution Relove H20 Hydrate Primer",
+            price: "₹539",
+            strikeoff: "599",
+            discount: "10% off",
+            type: "Dehydrated Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/247400/revolution-relove-h2o-hydrate-primer_1_display_1626694998_52a3a698.jpg",
+            rating: "4.0★"
+        }, {
+            name: "SUGAR Aquaholic Hydrating Primer",
+            price: "₹699",
+            strikeoff: "",
+            discount: "",
+            type: "Dehydrated Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/246641/sugar-aquaholic-hydrating-primer_2_display_1630130333_0d0014aa.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Revolution Revolve Fix Stick H20 Hydrate",
+            price: "₹629",
+            strikeoff: "699",
+            discount: "10% off",
+            type: "Dehydrated Skin",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/247426/revolution-relove-fix-stick-h2o-hydrate_1_display_1626694855_390757ed.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Base Of Glory Minimizing Primer",
+            price: "₹799",
+            strikeoff: "",
+            discount: "",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/156926/sugar-the-base-of-glory-pore-minimizing-primer-30-ml_2_display_1628588510_1eb6ab16.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Stay Quirky Makeup Primer(27g)",
+            price: "₹395",
+            strikeoff: "449",
+            discount: "12% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/136831/stay-quirky-makeup-primer_1_display_1516186060_abbd27a4.jpg",
+            rating: "4.1★"
+        }, {
+            name: "NY Bae Pro Primer| green Colour Correcting Face",
+            price: "₹237",
+            strikeoff: "249",
+            discount: "5% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/250563/ny-bae-pro-primer-green-color-correcting-face-primer-15-ml_1_display_1634907688_eec00ee8.jpg",
+            rating: "4.1★"
+        }, {
+            name: "Swiss Beauty Smooth & Flawless,primer",
+            price: "₹629",
+            strikeoff: "899",
+            discount: "30% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/254566/swiss-beauty-smooth-and-flawless-primer-foundation-3-natural-sand-30-ml_1_display_1611050377_351af043.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Swiss Beauty Smooth & flawless primer ",
+            price: "₹629",
+            strikeoff: "899",
+            discount: "30% off",
+            type: "visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/254564/swiss-beauty-smooth-and-flawless-primer-foundation-1-ivory-30-ml_1_display_1611050314_b7b31f81.jpg",
+            rating: "2★"
+        }, {
+            name: "Revolution Revolve Pore Vanish Primer",
+            price: "₹539",
+            strikeoff: "599",
+            discount: "10% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/247405/revolution-relove-pore-vanish-primer_1_display_1626695111_4af8e160.jpg",
+            rating: "4★"
+        }, {
+            name: "Revolution Revolve Super matte Primer",
+            price: "₹539",
+            strikeoff: "599",
+            discount: "10% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/247419/revolution-relove-super-matte-primer_1_display_1626695482_ca92fbe4.jpg",
+            rating: "4.1★"
+        }, {
+            name: "Revolution Relove Power Fix Primer",
+            price: "₹539",
+            strikeoff: "599",
+            discount: "10% off",
+            type: "Visible Pores",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/247408/revolution-relove-power-fix-primer_1_display_1626695161_4343d6a5.jpg",
+            rating: "4.2★"
+        }, {
+            name: "Base Of Glory Pore Minimizing Primer",
+            price: "₹799",
+            strikeoff: "",
+            discount: "",
+            type: "Skin Texture",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/156926/sugar-the-base-of-glory-pore-minimizing-primer-30-ml_2_display_1628588510_1eb6ab16.jpg",
+            rating: "4.3★"
+        }, {
+            name: "Swiss Beauty Makeup Primer Oil Free Mattifying",
+            price: "₹399",
+            strikeoff: "499",
+            discount: "20% off",
+            type: "Skin Texture",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/254557/swiss-beauty-makeup-primer-oil-free-mattifying-long-lasting-base-01-30-ml_1_display_1590779681_92ce6136.jpg",
+            rating: "4★"
+        }, {
+            name: "Lenphor Glam Touch Glow Primer(30ml)",
+            price: "₹479",
+            strikeoff: "599",
+            discount: "20% off",
+            type: "Skin Texture",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max/static/img/product/216581/lenphor-glam-touch-glow-primer_1_display_1606373316_d7da01a0.jpg",
+            rating: "4.1★"
+        }, {
+            name: "Swiss Beauty Makeup Primer Oil Free Mattifying",
+            price: "₹356",
+            strikeoff: "449",
+            discount: "20% off",
+            type: "Skin Texture",
+            image: "https://media6.ppl-media.com/tr:h-235,w-235,c-at_max,oi-top_rated_235x235small_1kce6dd9kH.png,ofo-top_right/static/img/product/200069/swiss-beauty-makeup-primer-oil-free-mattifying-long-lasting-base-01-30-ml_1_display_1590779681_92ce6136.jpg",
+            rating: "4★"
+        }
+
+    ];
+
+    // *************************************shorting start ************************** 
+    sortproduct()
+
+    function sortproduct() {
+        var get_value = document.querySelector("#sort").value
+        if (get_value == "low") {
+            var newarr = allproducts.sort(function(a, b) {
+                var bag1 = ""
+                for (var i = 1; i < a.price.length; i++) {
+                    bag1 = bag1 + a.price[i]
+                }
+                var bag2 = ""
+                for (var j = 1; j < b.price.length; j++) {
+                    bag2 = bag2 + b.price[j]
+                }
+
+                return Number(bag1) - Number(bag2)
+
+            })
+        } else if (get_value == "high") {
+            var newarr = allproducts.sort(function(a, b) {
+
+                var bag1 = ""
+                for (var i = 1; i < a.price.length; i++) {
+                    bag1 = bag1 + a.price[i]
+                }
+                var bag2 = ""
+                for (var j = 1; j < b.price.length; j++) {
+                    bag2 = bag2 + b.price[j]
+                }
+
+                return Number(bag2) - Number(bag1)
+            })
+        } else {
+            var newarr = allproducts.sort(function(a, b) {
+                return 0
+
+            })
+        }
+        document.querySelector("#container1").innerHTML = "";
+        displayproductItem(allproducts);
+
+
+    }
+
+    // **************************shorting end **************************** 
+
+
+
+
+
+
+
+    // **************************** filter start ********************** 
+    // ------------------------------filter 1 -------------------------- 
+    function filter1() {
+        var get = document.querySelector("#filter1").value
+        if (get == "Dry Skin") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Dry Skin") {
+                    return product
+                }
+            })
+
+        }
+
+        if (get == "Uneven Skin Tone") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Uneven Skin Tone") {
+                    return product
+                }
+            })
+
+        }
+        if (get == "All Skin Types") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "All Skin Types") {
+                    return product
+                }
+            })
+
+        }
+
+        document.querySelector("#container1").innerHTML = "";
+
+        displayproductItem(new_product);
+    }
+    // --------------------------more filter 2 ------------------------------ 
+
+
+
+
+
+
+    function filter2() {
+        var get = document.querySelector("#filter2").value
+        if (get == "Dullness") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Dullness") {
+                    return product
+                }
+            })
+
+        }
+
+        if (get == "Rough Skin") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Rough Skin") {
+                    return product
+                }
+            })
+
+        }
+        if (get == "Dehydrated Skin") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Dehydrated Skin") {
+                    return product
+                }
+            })
+
+        }
+        if (get == "Visible Pores") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Visible Pores") {
+                    return product
+                }
+            })
+
+        }
+        if (get == "Skin Texture") {
+            var new_product = allproducts.filter(function(product) {
+                if (product.type == "Skin Texture") {
+                    return product
+                }
+            })
+
+        }
+
+        document.querySelector("#container1").innerHTML = "";
+
+        displayproductItem(new_product);
+    }
+    // *****************************************filter end **************************** 
+
+
+
+
+
+
+
+
+    // ******************************display start ***************************** 
+    function displayproductItem(allproducts) {
+        // console.log(allproducts);
+        allproducts.map(function(elem) {
+            var container1 = document.querySelector("#container1");
+            var maindiv1 = document.createElement("div");
+            var imagediv1 = document.createElement("div");
+            imagediv1.setAttribute("class", "imagediv");
+            var image1 = document.createElement("img");
+            image1.setAttribute("src", elem.image);
+            image1.setAttribute("class", "prodimage")
+            image1.addEventListener("click", function() {
+                addtocart(elem)
+            });
+            var addcart1 = document.createElement("div")
+            addcart1.setAttribute("class", "carttext");
+            addcart1.textContent = "ADD TO CART"
+            imagediv1.append(image1, addcart1);
+            var name1 = document.createElement("p");
+            name1.textContent = elem.name;
+            var subdiv1 = document.createElement("div");
+            var price1 = document.createElement("h4");
+            price1.textContent = elem.price;
+            var strikeoff1 = document.createElement("h5");
+            strikeoff1.textContent = elem.strikeoff;
+            var discount1 = document.createElement("h6");
+            discount1.textContent = elem.discount;
+            var rating = document.createElement("p");
+            rating.textContent = elem.rating;
+            rating.setAttribute("class", "rating");
+            subdiv1.setAttribute("class", "subdiv")
+            subdiv1.append(price1, strikeoff1, discount1);
+            maindiv1.append(imagediv1, name1, subdiv1, rating);
+            container1.append(maindiv1);
+
+
+        });
+    };
+    var cartarr = JSON.parse(localStorage.getItem("cartobj")) || [];
+
+    function addtocart(elem) {
+        // console.log(elem);
+        cartarr.push(elem);
+        // console.log(cartarr);
+        localStorage.setItem("cartobj", JSON.stringify(cartarr));
+    }
+</script>

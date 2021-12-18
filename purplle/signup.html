@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>signup</title>
+    <link rel="stylesheet" href="login.css" />
+    <script
+  src="https://kit.fontawesome.com/683b4b40e3.js"
+  crossorigin="anonymous"
+></script>
+<!-- <script src="signup.js"></script> -->
+
+  </head>
+  <body>
+    <!-- signup page container  -->
+    <div class="signup">
+
+      <!-- header of signup page  -->
+      <div class="heading"><h2>Welcome Aboard</h2></div>
+      <div class="head-content">
+        <p>
+          Let's know you the better and make sure that you never lose access to
+          your account.
+        </p>
+      </div>
+
+      <!-- form fill up for new user  -->
+      <form action="#" id="formFill">
+
+        <!-- first field of user details  -->
+        <div class="wrapper">
+          <div class="input-form">
+            <input type="text" class="form-control"  name="name" id="name" placeholder="Enter Name" required />
+            <label class="label-form" for="name">Enter Your Name<span class="icon-star"><i class="fas fa-star"></i></span></label>
+            <!-- <div class="wrong"></div> -->
+          </div>
+        </div>
+
+        <!-- second field  -->
+        <div class="wrapper">
+          <div class="input-form">
+            <input type="email" class="form-control"  name="email" id="email" placeholder="Enter Email" required />
+            <label class="label-form" for="email">Enter Your Email<span class="icon-star"><i class="fas fa-star"></i></span></label>
+            <!-- <div class="wrong"></div> -->
+          </div>
+        </div>
+
+        <!-- third field  -->
+        <div class="wrapper">
+          <div class="input-form">
+            <input type="number" class="form-control"  name="number" id="password" placeholder="Enter Password" required />
+            <label class="label-form" for="password">Enter Your Password<span class="icon-star"><i class="fas fa-star"></i></span></label>
+            <!-- <div class="wrong"></div> -->
+          </div>
+        </div>
+
+        <!-- radio button for user  -->
+        <div class="radio">
+          <label>
+            <input type="radio" name="radio" checked />
+            <label>Male</label>
+          </label>
+          <label>
+            <input type="radio" name="radio" />
+            <label>Female</label>
+          </label>
+        </div>
+
+        <!-- submit button of the form  -->
+          <div class="submit-btn">
+            <input type="submit" value="SUBMIT" />
+          </div>
+
+          <!-- form foot to go back to signin page  -->
+          <div class="form-foot">
+            <span class="icon"><i class="fas fa-arrow-left"></i></span><p>Back to Login</p>  
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+<script>
+  // onclick back button go to signin page
+document.querySelector(".form-foot").addEventListener("click", gotoSignIn);
+
+// function for navigating to the signin page
+function gotoSignIn() {
+  document.location.href = "signin.html";
+}
+//onsubmit the form data would be stored locally
+document.querySelector("#formFill").addEventListener("submit", addItems);
+
+var userArr = JSON.parse(localStorage.getItem("userData")) || [];
+
+// function for taking input value from user and then stroring it in userObj
+function addItems(event) {
+  event.preventDefault();
+  let userObj = {
+    userName: formFill.name.value,
+    userEmail: formFill.email.value,
+    userPass: formFill.password.value,
+  };
+  userArr.push(userObj);
+  console.log(userObj);
+  localStorage.setItem("userData", JSON.stringify(userArr));
+  // document.querySelector("#id").value = "";
+  alert("Registerd Successfully!");
+  // document.location.href = "signin.html";
+}
+</script>

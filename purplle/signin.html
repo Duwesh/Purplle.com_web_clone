@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sign-up</title>
+
+    <!-- css file  -->
+    <link rel="stylesheet" href="login.css" />
+
+    <!-- font awesome icons script  -->
+    <script
+  src="https://kit.fontawesome.com/683b4b40e3.js"
+  crossorigin="anonymous"
+></script>
+
+<!-- script file for adding js functionality  -->
+<!-- <script src="signin.js"></script> -->
+  </head>
+  <body>
+
+    <!-- logo of purplle.com website  -->
+    <div id="logo">
+      <img
+        src="https://media6.ppl-media.com/static/purplle/img/purplle-logo-1.svg"
+        alt="purplle-logo"
+      />
+    </div>
+
+    <!-- main container for signin page  -->
+    <div id="popup">
+
+      <!-- header  -->
+      <div class="heading">
+        <h2>Login/Create Account</h2>
+      </div>
+
+      <!-- user form for taking input  -->
+        <form id="formFill">
+
+          <!-- each input field along with the label  -->
+          <div class="wrapper">
+            <div class="input-form">
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Enter Email"
+                required
+              />
+              <label class="label-form" for="email"
+                >Enter Your Email<span class="icon-star"
+                  ><i class="fas fa-star"></i></span
+              ></label>
+              <!-- <div class="wrong"></div> -->
+            </div>
+          </div>
+
+          <!-- another wrapper class withe input and label tag  -->
+          <div class="wrapper">
+            <div class="input-form">
+              <input
+                type="number"
+                class="form-control"
+                name="number"
+                id="password"
+                placeholder="Enter Password"
+                required
+              />
+              <label class="label-form" for="password"
+                >Enter Your Password<span class="icon-star"
+                  ><i class="fas fa-star"></i></span
+              ></label>
+              <!-- <div class="wrong"></div> -->
+            </div>
+          </div>
+
+          <!-- button for submitting the details of user  -->
+          <div class="login-btn">
+            <input type="submit" value="Login/Create" />
+          </div>
+
+          <!-- for logging with different mediums like fb and google  -->
+          <div class="optional-content">
+            <p>or connect with</p>
+          </div>
+
+          
+          <div class="google-icons">
+            <!-- facebook signin option  -->
+            <div class="fb-icon">
+              <img
+                src="https://media6.ppl-media.com/mediafiles/ecomm/misc/1542974744_fb-logo.png"
+              />
+              <label class="icon-label">FACEBOOK</label>
+            </div>
+
+            <!-- google signin option  -->
+            <div class="fb-icon">
+              <img
+                src="https://media6.ppl-media.com/mediafiles/ecomm/misc/1542974745_google-logo.png"
+              />
+              <label class="icon-label">GOOGLE</label>
+            </div>
+          </div>
+
+          <!-- for registration of new user can navigate to signup page  -->
+          <p class="message">Not registered? <a href="signup.html">Create an account<i class="fas fa-arrow-right"></i></a></p>
+          <!-- <div class="register"><button class="register-btn"><a href="signup.html">REGISTER</a></button></div> -->
+          
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+  document.querySelector("#formFill").addEventListener("submit", loginPage);
+let regUsers = JSON.parse(localStorage.getItem("userData")) || [];
+
+function loginPage(event) {
+  event.preventDefault();
+  let email = document.querySelector("#email").value;
+  let pass = document.querySelector("#password").value;
+  console.log("login func");
+  let flag = false;
+  for (let i = 0; i < regUsers.length; i++) {
+    if (regUsers[i].userEmail == email && regUsers[i].userPass == pass) {
+      alert("Logged In Successfully!");
+      // this if for navigating to home page
+      // document.location.href = "home.html";
+      flag = true;
+    }
+  }
+  if (!flag) {
+    alert("Please Fill up the Right Credentials");
+  }
+}
+
+</script>
