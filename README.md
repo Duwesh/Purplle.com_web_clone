@@ -1,5 +1,7 @@
 #### Purplle.com_web_clone
 This is clone of purplle.com, where we have used HTML, CSS and Javascript to acheive this.
+In this project we have tried to clone the “Purplle” website. We had build up all our efforts to do our best in this project. As, the Masai School's Mentorship  was specifically to build up our skills and we also accordingly implemented all that teachings in our project to look it at its best.
+
 ![logo purplle](https://user-images.githubusercontent.com/67849097/146675002-714b6f21-2573-43f0-83f0-3449230aa5c0.png)
 
 
