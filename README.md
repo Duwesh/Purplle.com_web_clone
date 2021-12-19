@@ -29,7 +29,7 @@ This is clone of purplle.com, where we have used HTML, CSS and Javascript to ach
 
 ## Instructions to Run the Code 
 
-- Clone my repository ``
+- Clone my repository `https://github.com/Duwesh/Purplle.com_web_clone.git`
 - Open that code in your VS code `HomePage.html`
 - Open the `HomePage.html` on Live server
 - Then you can Navigate through other pages from Landing page like `signin.html`, `cart.html`, `masterprimer.html` etc.
