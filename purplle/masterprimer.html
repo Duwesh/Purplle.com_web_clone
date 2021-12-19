@@ -1295,31 +1295,31 @@
         var get_value = document.querySelector("#sort").value
         if (get_value == "low") {
             var newarr = allproducts.sort(function (a, b) {
-                var bag1 = ""
-                for (var i = 1; i < a.price.length; i++) {
-                    bag1 = bag1 + a.price[i]
-                }
-                var bag2 = ""
-                for (var j = 1; j < b.price.length; j++) {
-                    bag2 = bag2 + b.price[j]
-                }
+                // var bag1 = ""
+                // for (var i = 1; i < a.price.length; i++) {
+                //     bag1 = bag1 + a.price[i]
+                // }
+                // var bag2 = ""
+                // for (var j = 1; j < b.price.length; j++) {
+                //     bag2 = bag2 + b.price[j]
+                // }
 
-                return Number(bag1) - Number(bag2)
+                return Number(a.price) - Number(b.price)
 
             })
         } else if (get_value == "high") {
             var newarr = allproducts.sort(function (a, b) {
 
-                var bag1 = ""
-                for (var i = 1; i < a.price.length; i++) {
-                    bag1 = bag1 + a.price[i]
-                }
-                var bag2 = ""
-                for (var j = 1; j < b.price.length; j++) {
-                    bag2 = bag2 + b.price[j]
-                }
+                // var bag1 = ""
+                // for (var i = 1; i < a.price.length; i++) {
+                //     bag1 = bag1 + a.price[i]
+                // }
+                // var bag2 = ""
+                // for (var j = 1; j < b.price.length; j++) {
+                //     bag2 = bag2 + b.price[j]
+                // }
 
-                return Number(bag2) - Number(bag1)
+                return Number(b.price) - Number(a.price)
             })
         } else {
             var newarr = allproducts.sort(function (a, b) {
