@@ -10,6 +10,16 @@ This is clone of purplle.com, where we have used HTML, CSS and Javascript to ach
  #### we have shared a demo presentation of this project "Purplle-clone".
  
  https://drive.google.com/file/d/13ufhEd5OfBRXy3yzIhuHmmUkp4STP6uC/view?usp=sharing
+ 
+# Snapshots
+
+![705ac20f-2532-440b-9d71-6e1d41105768](https://user-images.githubusercontent.com/67849097/146674897-2cfd2fff-814a-46dc-9394-dc208948dbaf.jpg)
+![Screenshot 2021-12-19 175046](https://user-images.githubusercontent.com/67849097/146674905-7140d13c-8a7c-41c0-b19b-dba21e09c282.png)
+![49ed311d-48d0-473a-b350-ae0439c01d61](https://user-images.githubusercontent.com/67849097/146674910-ca9d9f02-b7bd-40dc-a0e6-89e9046ee47c.jpg)
+![e25bcc85-9c7f-4f02-b3d6-4fcf2a1d587c](https://user-images.githubusercontent.com/67849097/146674914-23d5d099-1475-4301-96dc-07d5974d57d5.jpg)
+![2cc2ae15-fc76-4b6e-a1b2-2e2be7e86027](https://user-images.githubusercontent.com/67849097/146674915-36c7ec06-b4e2-44da-b2fa-0429df71b429.jpg)
+
+
 
 # Technology We Used :computer: 
 1. HTML5
