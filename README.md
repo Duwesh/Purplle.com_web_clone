@@ -1,5 +1,7 @@
 #### Purplle.com_web_clone
 This is clone of purplle.com, where we have used HTML, CSS and Javascript to acheive this.
+![logo purplle](https://user-images.githubusercontent.com/67849097/146675002-714b6f21-2573-43f0-83f0-3449230aa5c0.png)
+
 
 # Purplle-Website-Clone
 #### About Purplle
