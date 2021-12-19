@@ -17,15 +17,15 @@ This is clone of purplle.com, where we have used HTML, CSS and Javascript to ach
 3. Advanced JavaScript
 
 # Features
-1. You will be create your account using login and signup option.
+1. You will be able to create your account using login and signup option.
 
-2. You can choose a product you want to buy in add to cart section.
+2. You can choose a product which you want to buy and add to cart section.
 
 3. One can Sort and Filter the product according to the prices and categories of different products.
 
-4. User can also select and remove items from cart and make payment through card.
+4. User can also select and remove items from cart section and make payment through card.
 
-5. The data is stored in the localStorage of the User. 
+5. All the data is stored in the localStorage of the User. 
 
 ## Instructions to Run the Code 
 
